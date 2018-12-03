@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    private void calculatePremium(View view){
+    public void calculatePremium(View view){
         float premium = 0;
         int ageGroup;
         ageGroup = spinnerAge.getSelectedItemPosition();
@@ -90,5 +90,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 premium += 300;
             }
         }
+        textViewPremium.setText(getString(R.string.premium)+ " = " + premium);
+    }
+
+    public void Reset(View view){
+        spinnerAge.setSelection(-1);
+        radioButtonMale.setChecked(false);
+        radioButtonFemale.setChecked(false);
+        checkBoxSmoker.setChecked(false);
+        textViewPremium.setText(getString(R.string.premium));
     }
 }
